@@ -76,9 +76,10 @@ async function muteUser(user, timeFrame, guild, msg) {
     const timeAbrev = time === 1 ? 'minuto': 'minutos'
     replyChannel.send(`${memberToMute.user} y si te callas por ${time} ${timeAbrev}`);
     
-    setTimeout(() => {
+    setTimeout(async () => {
         console.log('desmuteando')
         memberToMute.edit({mute: false});
-        msg.delete();
+        let oldMessages = await replyChannel.messages.fetch();
+        replyChannel.bulkDelete(oldMessages);
     }, timeInMs);
 }
