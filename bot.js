@@ -70,7 +70,7 @@ async function muteUser(user, timeFrame, guild, msg) {
     await memberToMute.edit({mute: true});
 
     const channels = await guild.channels.fetch();
-    const tempChannel = channels.filter((channel => channel.type === "GUILD_TEXT" && channel.name === "saboteo"));
+    const tempChannel = channels.filter((channel => channel.type === "GUILD_TEXT" && channel.name === "bots"));
     const replyChannel = [...tempChannel][0][1];
     
     const timeAbrev = time === 1 ? 'minuto': 'minutos'
