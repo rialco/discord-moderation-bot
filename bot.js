@@ -70,8 +70,11 @@ async function muteUser(user, timeFrame, guild, msg) {
     await memberToMute.edit({mute: true});
 
     const channels = await guild.channels.fetch();
-    const tempChannel = channels.filter((channel => channel.type === "GUILD_TEXT" && channel.name === "bots"));
-    const replyChannel = [...tempChannel][0][1];
+    const replyChannelMap = channels.filter((channel => channel.type === "GUILD_TEXT" && channel.name === "bots"));
+    const commandChannelMap = channels.filter((channel => channel.type === "GUILD_TEXT" && channel.name === "wmd"));
+
+    const replyChannel = [...replyChannelMap][0][1];
+    const commandChannel = [...commandChannelMap][0][1];
     
     const timeAbrev = time === 1 ? 'minuto': 'minutos'
     replyChannel.send(`${memberToMute.user} y si te callas por ${time} ${timeAbrev}`);
@@ -79,7 +82,7 @@ async function muteUser(user, timeFrame, guild, msg) {
     setTimeout(async () => {
         console.log('desmuteando')
         memberToMute.edit({mute: false});
-        let oldMessages = await replyChannel.messages.fetch();
-        replyChannel.bulkDelete(oldMessages);
+        let oldMessages = await commandChannel.messages.fetch();
+        commandChannel.bulkDelete(oldMessages);
     }, timeInMs);
 }
