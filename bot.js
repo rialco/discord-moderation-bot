@@ -1,10 +1,7 @@
 // Require the necessary discord.js classes
 import { Client, Intents} from 'discord.js';
-import dotenv from 'dotenv';
-dotenv.config();
-
-const carrilloUsername = 'andrescarrillo#8377';
-const carrilloID = '710885844927381605';
+//import dotenv from 'dotenv';
+//dotenv.config();
 
 // Create a new client instance
 const client = new Client({ intents: [Intents.FLAGS.GUILDS,  Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_MESSAGES] });

@@ -5,7 +5,8 @@
   "description": "Discord moderation bot",
   "main": "bot.js",
   "scripts": {
-    "start": "nodemon .",
+    "dev": "nodemon .",
+    "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
