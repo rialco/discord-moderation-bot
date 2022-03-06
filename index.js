@@ -27,7 +27,7 @@ const devConfig = {
 }
 
 const prodConfig = {
-    newConString,
+    connectionString: newConString,
     ssl: { require: true, rejectUnathorized: false},
 }
 
