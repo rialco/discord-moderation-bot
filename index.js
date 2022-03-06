@@ -32,6 +32,8 @@ const prodConfig = {
 
 const config = process.env.PRODUCTION == 'false' ? devConfig : prodConfig;
 
+console.log(config);
+
 pool.connect(config)
 .then(async () => {
     // Login to Discord with your client's token
