@@ -15,6 +15,7 @@ const client = new Client({
 });
 
 const connectionString = process.env.DATABASE_URL;
+const newConString = connectionString + '?sslmode=no-verify';
 
 const devConfig = {
     host: process.env.PGHOST,
@@ -26,7 +27,7 @@ const devConfig = {
 }
 
 const prodConfig = {
-    connectionString,
+    newConString,
     ssl: { require: true, rejectUnathorized: false},
 }
 
