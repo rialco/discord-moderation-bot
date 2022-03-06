@@ -32,7 +32,19 @@ const exampleEmbed = {
 
 events.map((event) => {
 	console.log(event);
-    const nField = { name: ':soccer: ' + event.name, value: event.date.toLocaleDateString() };
+	let type;
+	switch(event.type) {
+		case 'football':
+			type = 'soccer';
+			break;
+		case 'birthday':
+			type = 'birthday';
+			break;
+		default:
+			type = 'default';
+			break;
+	}
+    const nField = { name: ':' + type + ': ' + event.name, value: event.date.toLocaleDateString() };
     exampleEmbed.fields.push(nField);
     eventsChannel.send({ embeds: [exampleEmbed] });
 });
