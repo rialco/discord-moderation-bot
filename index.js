@@ -27,7 +27,7 @@ const devConfig = {
 
 const prodConfig = {
     connectionString,
-    ssl: { rejectUnathorized: false},
+    ssl: { require: true, rejectUnathorized: false},
 }
 
 const config = process.env.PRODUCTION == 'false' ? devConfig : prodConfig;
